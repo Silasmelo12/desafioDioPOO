@@ -26,7 +26,7 @@ public class Dev {
     }
 
     public double calcularXp(){
-       return this.conteudosInscritos
+       return this.conteudosConcluidos
                .stream()
                .mapToDouble(c->c.calcularXp())
                .sum();

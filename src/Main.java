@@ -1,6 +1,4 @@
-import br.com.dio.desafio.dominio.Conteudo;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -23,8 +21,34 @@ public class Main {
         mentoria.setDescricao("Descricao da mentoria Java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1.toString());
-        System.out.println(curso2.toString());
-        System.out.println("Hello world!");
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bottcamp java developer");
+        bootcamp.setDescricao("descrição do bootcamp java developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev silas = new Dev();
+        silas.setNome("Silas");
+        Dev joao = new Dev();
+        joao.setNome("João");
+        System.out.println("Conteudos incritos de "+silas.getNome()+": "+silas.getConteudosInscritos() );
+        System.out.println("Conteudos incritos de "+silas.getNome()+": "+silas.getConteudosInscritos() );
+        System.out.println("XP de "+silas.getNome()+": "+silas.calcularXp() );
+        System.out.println("XP de "+joao.getNome()+": "+joao.calcularXp() );
+
+        silas.increverBootcamp(bootcamp);
+        joao.increverBootcamp(bootcamp);
+        System.out.println("Conteudos incritos de "+silas.getNome()+": "+silas.getConteudosInscritos() );
+        System.out.println("Conteudos incritos de "+joao.getNome()+": "+joao.getConteudosInscritos() );
+        System.out.println("XP de "+silas.getNome()+": "+silas.calcularXp() );
+        System.out.println("XP de "+joao.getNome()+": "+joao.calcularXp() );
+        silas.progredir();
+        System.out.println("Conteudos incritos de "+silas.getNome()+": "+silas.getConteudosInscritos() );
+        System.out.println("Conteudos incritos de "+joao.getNome()+": "+joao.getConteudosInscritos() );
+        System.out.println("Conteudos concluidos de "+silas.getNome()+": "+silas.getConteudosConcluidos() );
+        System.out.println("Conteudos concluidos de "+joao.getNome()+": "+joao.getConteudosConcluidos() );
+        System.out.println("XP de "+silas.getNome()+": "+silas.calcularXp() );
+        System.out.println("XP de "+joao.getNome()+": "+joao.calcularXp() );
     }
 }
